@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:;">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+    <title>Travel Retail Sales Excellence Training - Assessment</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            position: relative;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links li {
+            margin-left: 20px;
+            margin-bottom: 5px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .btn:disabled {
+            background-color: #95a5a6;
+            cursor: not-allowed;
+        }
+        
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Travel Retail Sales Excellence</div>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../index.html#course-outline">Course Outline</a></li>
+                    <li><a href="../index.html#modules">Modules</a></li>
+                    <li><a href="assessment.html">Assessment</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="assessment-container">
+        <div class="assessment-name-form">
+            <h2>Before You Begin</h2>
+            <p>Please enter your full name as it should appear on your certificate.</p>
+            
+            <form id="nameForm">
+                <div class="form-group">
+                    <label for="userName">Full Name:</label>
+                    <input
+                        type="text"
+                        id="userName"
+                        placeholder="Enter your full name"
+                        required
+                    />
+                </div>
+                
+                <button type="submit" class="btn">
+                    Start Assessment
+                </button>
+            </form>
+        </div>
+        
+        <div class="assessment-quiz" style="display: none;">
+            <h2>Travel Retail Sales Excellence Assessment</h2>
+            <p class="quiz-instructions">
+                Answer all questions to complete the assessment. You need to score at least 7/10 to pass.
+            </p>
+            
+            <div class="questions-container">
+                <!-- Questions will be inserted here by JavaScript -->
+            </div>
+            
+            <div class="quiz-actions">
+                <button id="submitQuiz" class="btn" disabled>
+                    Submit Assessment
+                </button>
+            </div>
+            
+            <p class="quiz-warning">
+                Please answer all questions before submitting.
+            </p>
+        </div>
+        
+        <div class="assessment-results" style="display: none;">
+            <h2 id="resultsTitle">Results</h2>
+            
+            <div class="results-score">
+                <p>Your Score: <span id="scoreValue" class="score-value">0/10</span></p>
+                <p class="passing-info">Passing Score: 7/10</p>
+            </div>
+            
+            <div id="successMessage" class="success-message" style="display: none;">
+                <p>
+                    You have successfully completed the Travel Retail Sales Excellence Training assessment.
+                    Your certificate is now available.
+                </p>
+                
+                <button id="viewCertificate" class="btn">
+                    View Your Certificate
+                </button>
+            </div>
+            
+            <div id="failureMessage" class="failure-message" style="display: none;">
+                <p>
+                    You didn't reach the passing score for this assessment.
+                    We recommend reviewing the training materials and trying again.
+                </p>
+                
+                <button id="retakeQuiz" class="btn">
+                    Retake Assessment
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>© 2025 Travel Retail Sales Excellence Training. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Quiz questions
+        const quizQuestions = [
+            {
+                question: "Which of the following is NOT a key factor in the psychology of travel retail purchasing?",
+                options: [
+                    "The Holiday Mindset",
+                    "The Reward Mechanism",
+                    "The Price Comparison Imperative",
+                    "The Gift-Giving Imperative"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "When explaining the difference between Eau de Toilette and Eau de Parfum to a customer, which of the following is the most accurate statement?",
+                options: [
+                    "They are exactly the same product with different names",
+                    "Eau de Parfum has a higher concentration of fragrance oils, resulting in longer longevity",
+                    "Eau de Toilette is always more expensive due to its exclusive nature",
+                    "Eau de Parfum is only suitable for evening wear"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "Which approach is most effective when cross-selling alcohol products?",
+                options: [
+                    "Always suggest the most expensive complementary product",
+                    "Suggest products from completely unrelated categories",
+                    "Suggest appropriate food items that complement flavor profiles",
+                    "Focus only on the same brand regardless of compatibility"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "What is a key consideration when selling tobacco products in travel retail?",
+                options: [
+                    "Ignoring legal age restrictions in duty-free environments",
+                    "Ensuring compliance with destination country import allowances",
+                    "Encouraging excessive purchases beyond legal limits",
+                    "Focusing exclusively on price advantages"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "Which of the following is an effective upselling technique for premium confectionery?",
+                options: [
+                    "Emphasizing only the price difference between standard and premium options",
+                    "Offering comparative tastings that demonstrate quality differences",
+                    "Suggesting that all standard options are of poor quality",
+                    "Focusing exclusively on packaging without addressing taste"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "What is the 'Value Equation' in the context of upselling?",
+                options: [
+                    "The mathematical formula for calculating exact profit margins",
+                    "The understanding that value perception extends beyond price to include quality, exclusivity, and emotional benefits",
+                    "The process of always selecting the cheapest option",
+                    "The technique of hiding the true cost from customers"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "Which of the following is a recommended approach when handling customer hesitation during an upselling attempt?",
+                options: [
+                    "Immediately reduce the price to secure the sale",
+                    "Apply high-pressure sales tactics to force a decision",
+                    "Offer to set items aside temporarily while customers consider options",
+                    "Suggest that the customer is making a mistake by hesitating"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "What is the 'Guided Journey' technique in time management for travel retail?",
+                options: [
+                    "Taking customers on a physical tour of the entire store regardless of their interests",
+                    "Providing structured guidance that efficiently addresses needs for time-constrained customers",
+                    "Spending equal time with every customer regardless of their needs",
+                    "Focusing exclusively on high-value customers and ignoring others"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "Which of the following is an effective cross-selling approach in travel retail?",
+                options: [
+                    "The Solution-Based Approach that creates complete solutions rather than isolated products",
+                    "The Random Suggestion Approach that recommends any available product",
+                    "The High-Pressure Approach that forces additional purchases",
+                    "The Inventory Reduction Approach that focuses on slow-moving items"
+                ],
+                correctAnswer: 0
+            },
+            {
+                question: "What is the most ethical approach to upselling and cross-selling?",
+                options: [
+                    "Suggesting any premium product regardless of customer needs to maximize sales",
+                    "Creating artificial urgency to force quick decisions",
+                    "Only suggesting products that genuinely align with customer needs and preferences",
+                    "Withholding information about more suitable lower-priced alternatives"
+                ],
+                correctAnswer: 2
+            }
+        ];
+
+        // DOM elements
+        const nameForm = document.getElementById('nameForm');
+        const quizSection = document.querySelector('.assessment-quiz');
+        const resultsSection = document.querySelector('.assessment-results');
+        const questionsContainer = document.querySelector('.questions-container');
+        const submitQuizButton = document.getElementById('submitQuiz');
+        const quizWarning = document.querySelector('.quiz-warning');
+        const scoreValue = document.getElementById('scoreValue');
+        const resultsTitle = document.getElementById('resultsTitle');
+        const successMessage = document.getElementById('successMessage');
+        const failureMessage = document.getElementById('failureMessage');
+        const viewCertificateButton = document.getElementById('viewCertificate');
+        const retakeQuizButton = document.getElementById('retakeQuiz');
+
+        // State variables
+        let userName = '';
+        let answers = Array(quizQuestions.length).fill(-1);
+        let certificateEarned = false;
+
+        // Initialize quiz
+        function initializeQuiz() {
+            questionsContainer.innerHTML = '';
+            
+            quizQuestions.forEach((question, qIndex) => {
+                const questionCard = document.createElement('div');
+                questionCard.className = 'question-card';
+                
+                questionCard.innerHTML = `
+                    <h3>Question ${qIndex + 1}</h3>
+                    <p class="question-text">${question.question}</p>
+                    <div class="options-list">
+                        ${question.options.map((option, oIndex) => `
+                            <div class="option-item">
+                                <input
+                                    type="radio"
+                                    id="q${qIndex}-o${oIndex}"
+                                    name="question-${qIndex}"
+                                    ${answers[qIndex] === oIndex ? 'checked' : ''}
+                                />
+                                <label for="q${qIndex}-o${oIndex}">${option}</label>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                
+                questionsContainer.appendChild(questionCard);
+                
+                // Add event listeners to radio buttons
+                const radioButtons = questionCard.querySelectorAll('input[type="radio"]');
+                radioButtons.forEach((radio, oIndex) => {
+                    radio.addEventListener('change', () => {
+                        answers[qIndex] = oIndex;
+                        checkAllAnswered();
+                    });
+                });
+            });
+        }
+
+        // Check if all questions are answered
+        function checkAllAnswered() {
+            const allAnswered = !answers.includes(-1);
+            submitQuizButton.disabled = !allAnswered;
+            quizWarning.style.display = allAnswered ? 'none' : 'block';
+        }
+
+        // Calculate score
+        function calculateScore() {
+            let score = 0;
+            quizQuestions.forEach((question, index) => {
+                if (answers[index] === question.correctAnswer) {
+                    score++;
+                }
+            });
+            return score;
+        }
+
+        // Event listeners
+        nameForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            userName = document.getElementById('userName').value.trim();
+            if (userName) {
+                document.querySelector('.assessment-name-form').style.display = 'none';
+                quizSection.style.display = 'block';
+                initializeQuiz();
+            }
+        });
+
+        submitQuizButton.addEventListener('click', function() {
+            const score = calculateScore();
+            certificateEarned = score >= 7;
+            
+            scoreValue.textContent = `${score}/${quizQuestions.length}`;
+            resultsTitle.textContent = certificateEarned ? 'Congratulations!' : 'Assessment Not Passed';
+            
+            if (certificateEarned) {
+                resultsSection.classList.add('passed');
+                resultsSection.classList.remove('failed');
+                successMessage.style.display = 'block';
+                failureMessage.style.display = 'none';
+            } else {
+                resultsSection.classList.add('failed');
+                resultsSection.classList.remove('passed');
+                successMessage.style.display = 'none';
+                failureMessage.style.display = 'block';
+            }
+            
+            quizSection.style.display = 'none';
+            resultsSection.style.display = 'block';
+        });
+
+        viewCertificateButton.addEventListener('click', function() {
+            // Store user data in localStorage
+            localStorage.setItem('certificateUserName', userName);
+            localStorage.setItem('certificateEarned', 'true');
+            
+            // Navigate to certificate page
+            window.location.href = 'certificate.html';
+        });
+
+        retakeQuizButton.addEventListener('click', function() {
+            answers = Array(quizQuestions.length).fill(-1);
+            quizSection.style.display = 'block';
+            resultsSection.style.display = 'none';
+            initializeQuiz();
+        });
+    </script>
+</body>
+</html>

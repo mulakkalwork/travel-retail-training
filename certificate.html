@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:;">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+    <title>Travel Retail Sales Excellence Training - Certificate</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            position: relative;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links li {
+            margin-left: 20px;
+            margin-bottom: 5px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .btn:disabled {
+            background-color: #95a5a6;
+            cursor: not-allowed;
+        }
+        
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Travel Retail Sales Excellence</div>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../index.html#course-outline">Course Outline</a></li>
+                    <li><a href="../index.html#modules">Modules</a></li>
+                    <li><a href="assessment.html">Assessment</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="certificate-page">
+        <h1>Your Certificate of Completion</h1>
+        
+        <div id="certificate-container" class="certificate">
+            <div class="certificate-header">
+                <h2>Certificate of Completion</h2>
+            </div>
+            
+            <div class="certificate-content">
+                <p class="certificate-text">This certifies that</p>
+                <p id="certificate-name" class="certificate-name">Your Name</p>
+                <p class="certificate-text">has successfully completed the</p>
+                <p class="certificate-course">Travel Retail Sales Excellence Training</p>
+                <p class="certificate-text">demonstrating proficiency in selling perfumes, alcohol, tobacco, food, and confectionery products in travel retail environments</p>
+                <p id="certificate-date" class="certificate-date">Awarded on June 2, 2025</p>
+            </div>
+            
+            <div class="certificate-footer">
+                <div class="certificate-signature">
+                    <div class="signature-line"></div>
+                    <p>Training Director</p>
+                </div>
+                <div class="certificate-seal">
+                    <div class="seal-image">✓</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="certificate-actions">
+            <button id="downloadCertificate" class="btn">
+                Download Certificate (PDF)
+            </button>
+            <a href="../index.html" class="btn btn-outline">
+                Return to Home
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>© 2025 Travel Retail Sales Excellence Training. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if certificate was earned
+            const certificateEarned = localStorage.getItem('certificateEarned') === 'true';
+            const userName = localStorage.getItem('certificateUserName') || 'Your Name';
+            
+            if (!certificateEarned) {
+                // Redirect to assessment if certificate not earned
+                window.location.href = 'assessment.html';
+                return;
+            }
+            
+            // Set certificate name and date
+            document.getElementById('certificate-name').textContent = userName;
+            
+            const currentDate = new Date();
+            const formattedDate = currentDate.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+            document.getElementById('certificate-date').textContent = `Awarded on ${formattedDate}`;
+            
+            // Download certificate functionality
+            document.getElementById('downloadCertificate').addEventListener('click', function() {
+                // Create a simple PDF-like version for download
+                const certificateContent = document.getElementById('certificate-container').outerHTML;
+                const htmlContent = `
+                    <!DOCTYPE html>
+                    <html>
+                    <head>
+                        <title>Certificate - ${userName}</title>
+                        <style>
+                            body { margin: 0; padding: 0; }
+                            .certificate {
+                                background-color: white;
+                                border: 10px solid #2c3e50;
+                                padding: 2rem;
+                                width: 100%;
+                                max-width: 800px;
+                                margin: 0 auto;
+                                box-sizing: border-box;
+                            }
+                            .certificate-header {
+                                text-align: center;
+                                width: 100%;
+                                border-bottom: 2px solid #2c3e50;
+                                padding-bottom: 1rem;
+                            }
+                            .certificate-header h2 {
+                                color: #2c3e50;
+                                font-size: 2rem;
+                                margin: 0;
+                            }
+                            .certificate-content {
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                justify-content: center;
+                                text-align: center;
+                                width: 100%;
+                                padding: 2rem 0;
+                            }
+                            .certificate-text {
+                                margin: 0.5rem 0;
+                                font-size: 1.2rem;
+                            }
+                            .certificate-name {
+                                font-size: 2.5rem;
+                                font-weight: bold;
+                                color: #2c3e50;
+                                margin: 1rem 0;
+                            }
+                            .certificate-course {
+                                font-size: 1.5rem;
+                                font-weight: bold;
+                                color: #3498db;
+                                margin: 1rem 0;
+                            }
+                            .certificate-date {
+                                margin-top: 2rem;
+                                font-style: italic;
+                            }
+                            .certificate-footer {
+                                display: flex;
+                                justify-content: space-between;
+                                width: 100%;
+                                padding-top: 2rem;
+                                border-top: 2px solid #2c3e50;
+                            }
+                            .certificate-signature {
+                                text-align: center;
+                                width: 200px;
+                            }
+                            .signature-line {
+                                height: 1px;
+                                background-color: #6c757d;
+                                margin-bottom: 0.5rem;
+                            }
+                            .certificate-seal {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                            }
+                            .seal-image {
+                                width: 60px;
+                                height: 60px;
+                                border: 2px solid #2c3e50;
+                                border-radius: 50%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                font-size: 2rem;
+                                color: #2c3e50;
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        ${certificateContent}
+                    </body>
+                    </html>
+                `;
+                
+                // Create a Blob with the HTML content
+                const blob = new Blob([htmlContent], { type: 'text/html' });
+                
+                // Create a download link
+                const downloadLink = document.createElement('a');
+                downloadLink.href = URL.createObjectURL(blob);
+                downloadLink.download = `Travel_Retail_Certificate_${userName.replace(/\s+/g, '_')}.html`;
+                
+                // Trigger download
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+                document.body.removeChild(downloadLink);
+            });
+        });
+    </script>
+</body>
+</html>
